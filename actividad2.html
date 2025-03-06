@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escanee sus productos</title>
+</head>
+<body>
+
+    <h2>Calculadora de compras</h2>
+    <button onclick="sumarNumeros()">Ingrese el precio de sus productos</button>
+
+    <script>
+        function sumarNumeros() {
+            // Pedir el precio de los productos y convertirlos a número
+            let numero1 = parseFloat(prompt("Ingrese el precio del producto 1:")) || 0;
+            let numero2 = parseFloat(prompt("Ingrese el precio del producto 2:")) || 0;
+            let numero3 = parseFloat(prompt("Ingrese el precio del producto 3:")) || 0;
+            let numero4 = parseFloat(prompt("Ingrese el precio del producto 4:")) || 0;
+            let numero5 = parseFloat(prompt("Ingrese el precio del producto 5:")) || 0;
+
+            // Calcular el total de la compra
+            let totalcompras = numero1 + numero2 + numero3 + numero4 + numero5;
+
+            if (totalcompras > 5000000) {
+                let descuento = (totalcompras * 5) / 100; // 5% de descuento
+                let totalConDescuento = totalcompras - descuento;
+                alert("El resultado de su compra con descuento es: " + totalConDescuento);
+            } else {
+                alert("El resultado de su compra sin descuento es de: " + totalcompras);
+            }
+        }
+    </script>
+
+</body>
+</html>
+    
