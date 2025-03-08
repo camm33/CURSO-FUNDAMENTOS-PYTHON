@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Calidad</title>
+</head>
+<body>
+
+    <h2>Inspección de Calidad</h2>
+    <button onclick="inspeccionarPieza()">Inspeccionar Pieza</button>
+
+    <script>
+        function inspeccionarPieza() {
+            let entrada = prompt("Ingrese la inspección en binario (ejemplo: 1111 o 1011):");
+
+            if (!entrada || !/^[01]+$/.test(entrada)) {
+                alert("⚠️ Entrada no válida. Ingrese solo 1s y 0s.");
+                return;
+            }
+
+            if (entrada.includes("0")) {
+                alert("❌ La pieza ha sido RECHAZADA. Se encontró un defecto.");
+            } else {
+                alert("✅ La pieza ha sido APROBADA. Cumple con los estándares de calidad.");
+            }
+        }
+    </script>
+
+</body>
+</html>
+

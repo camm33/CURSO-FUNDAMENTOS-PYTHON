@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Motor</title>
+</head>
+<body>
+
+    <h2>Control de Motor</h2>
+    <button onclick="verificarTemperatura()">Revisar Temperatura</button>
+
+    <script>
+        function verificarTemperatura() {
+            let temperatura = parseFloat(prompt("Ingrese la temperatura de la máquina:")) || 0;
+
+            if (temperatura > 80) {
+                alert("⚠️ Temperatura demasiado alta. El motor se ha apagado automáticamente.");
+            } else {
+                alert("✅ Temperatura estable. El motor sigue encendido.");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Descuentos</title>
+</head>
+<body>
+    <h1>Calculadora de Descuentos para el Partido</h1>
+    <button onclick="ingresarDatos()">Ingresar Datos</button>
+    <button onclick="calcularDescuentos()">Calcular</button>
+    <p id="resultado"></p>
+
+    <script>
+        const precioBoleta = 50000; // Precio de la boleta sin descuento
+        let totalRecaudado = 0;
+        let totalDescontado = 0;
+        let aficionados = [];
+
+        function ingresarDatos() {
+            let cantidad = parseInt(prompt("Ingrese la cantidad de aficionados:"));
+            aficionados = [];
+
+            for (let i = 0; i < cantidad; i++) {
+                let estrato = parseInt(prompt(`Ingrese el estrato del aficionado ${i + 1} (1 o 2):`));
+                let edad = parseInt(prompt(`Ingrese la edad del aficionado ${i + 1}:`));
+                
+                if ((estrato === 1 || estrato === 2) && !isNaN(edad)) {
+                    aficionados.push({ estrato, edad });
+                } else {
+                    alert("Datos inválidos. Intente nuevamente.");
+                    i--;
+                }
+            }
+        }
+
+        function calcularDescuentos() {
+            totalRecaudado = 0;
+            totalDescontado = 0;
+
+            for (let aficionado of aficionados) {
+                let descuento = 0;
+
+                if (aficionado.estrato === 1) {
+                    if (aficionado.edad < 18) {
+                        descuento = 0.20;
+                    } else {
+                        descuento = 0.15;
+                    }
+                } else if (aficionado.estrato === 2) {
+                    if (aficionado.edad < 18) {
+                        descuento = 0.10;
+                    } else {
+                        descuento = 0.05;
+                    }
+                }
+
+                let descuentoAplicado = precioBoleta * descuento;
+                let precioFinal = precioBoleta - descuentoAplicado;
+
+                totalRecaudado += precioFinal;
+                totalDescontado += descuentoAplicado;
+            }
+
+            document.getElementById("resultado").innerHTML =
+                "Total recaudado: $" + totalRecaudado + "<br>" +
+                "Total descontado: $" + totalDescontado;
+        }
+    </script>
+</body>
+</html>
