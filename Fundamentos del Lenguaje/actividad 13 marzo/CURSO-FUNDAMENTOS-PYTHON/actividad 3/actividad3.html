@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letras Coincidentes</title>
+</head>
+<body>
+    <script>
+        // Solicitar dos frases al usuario
+        let frase1 = prompt("Ingresa la primera frase:");
+        let frase2 = prompt("Ingresa la segunda frase:");
+
+        // Determinar la longitud mínima entre ambas frases
+        let minLength = Math.min(frase1.length, frase2.length);
+        
+        // Crear una lista para almacenar las letras que coinciden en la misma posición
+        let letrasCoincidentes = [];
+
+        // Recorrer las frases y comparar los caracteres en la misma posición
+        for (let i = 0; i < minLength; i++) {
+            if (frase1[i] === frase2[i]) {
+                letrasCoincidentes.push(frase1[i]);
+            }
+        }
+
+        // Mostrar las letras coincidentes
+        document.write("<p>Letras que coinciden en la misma posición: [" + letrasCoincidentes.join(", ") + "]</p>");
+    </script>
+</body>
+</html>

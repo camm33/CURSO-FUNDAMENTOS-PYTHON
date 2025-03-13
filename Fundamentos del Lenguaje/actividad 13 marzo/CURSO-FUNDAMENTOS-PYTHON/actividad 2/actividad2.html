@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Número de Lista</title>
+</head>
+<body>
+    <script>
+        // Solicitar al usuario la cantidad de elementos
+        let n = parseInt(prompt("¿Cuántos números deseas ingresar en la lista?"));
+
+        // Crear una lista vacía
+        let miLista = [];
+
+        // Solicitar los números y agregarlos a la lista
+        for (let i = 0; i < n; i++) {
+            let elemento = parseInt(prompt(`Ingresa el número ${i + 1}:`));
+            miLista.push(elemento);
+        }
+
+        // Mostrar la lista original
+        document.write("<p>Lista ingresada: " + miLista.join(", ") + "</p>");
+
+        // Solicitar el número a eliminar
+        let numeroAEliminar = parseInt(prompt("Ingresa el número que deseas eliminar de la lista:"));
+
+        // Filtrar la lista para eliminar todas las ocurrencias del número ingresado
+        miLista = miLista.filter(num => num !== numeroAEliminar);
+
+        // Mostrar la lista final
+        document.write("<p>Lista después de eliminar el número: " + miLista.join(", ") + "</p>");
+    </script>
+</body>
+</html>
